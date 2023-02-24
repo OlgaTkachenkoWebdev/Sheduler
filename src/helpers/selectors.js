@@ -8,13 +8,12 @@ export function getAppointmentsForDay(state, day) {
   if (days.length === 0) {
     return []
   } else {
-    days.map(d => {
-      if (d.name == day) {
-        dayAppointments = d.appointments;
-      } else {
-        return [];
-      }
-    })
+    const filteredDay = days.filter(d => d.name == day)
+    if (filteredDay[0]) {
+    dayAppointments = filteredDay[0].appointments;
+    } else {
+      return [];
+    }
   }
 
   const appointmentsNumbers = Object.keys(appointments);
