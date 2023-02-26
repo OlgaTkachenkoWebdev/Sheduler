@@ -1,29 +1,26 @@
-export function getAppointmentsForDay(state, day) {
+//returns array of appointment objects
+export default function getAppointmentsForDay(state, day) {
   //returns an array of appointments for that day
   const days = state.days;
   const appointments = state.appointments;
   let dayAppointments = [];
-  let appointmentsObjects = [];
 
   if (days.length === 0) {
     return []
   } else {
-    const filteredDay = days.filter(d => d.name == day)
+    const filteredDay = days.filter(d => d.name === day)
     if (filteredDay[0]) {
-    dayAppointments = filteredDay[0].appointments;
+      dayAppointments = filteredDay[0].appointments;
     } else {
       return [];
     }
   }
 
-  const appointmentsNumbers = Object.keys(appointments);
+  let appointmentsObjects = [];
 
-  for (const number of appointmentsNumbers) {
-    for (const id in dayAppointments) {
-      if (number == dayAppointments[id]) {
-        appointmentsObjects.push(appointments[number])
-      }
-    }
+  for (const id of dayAppointments) {
+    appointmentsObjects.push(appointments[id])
   }
+
   return appointmentsObjects;
 }
