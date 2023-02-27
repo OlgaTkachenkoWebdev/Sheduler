@@ -1,5 +1,5 @@
 //returns array of appointment objects
-export default function getAppointmentsForDay(state, day) {
+export function getAppointmentsForDay(state, day) {
   //returns an array of appointments for that day
   const days = state.days;
   const appointments = state.appointments;
@@ -23,4 +23,19 @@ export default function getAppointmentsForDay(state, day) {
   }
 
   return appointmentsObjects;
+}
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const interviewerId = interview.interviewer;
+  const interviewerObject = state.interviewers[`${interviewerId}`];
+
+  const interviewObject = {
+    "student": interview.student,
+    "interviewer": interviewerObject
+  }
+
+  return interviewObject;
 }
