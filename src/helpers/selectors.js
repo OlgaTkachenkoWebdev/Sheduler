@@ -41,12 +41,9 @@ export function getInterview(state, interview) {
   return interviewObject;
 }
 
-//returns array of appointment objects
+//returns array of appointment objects for given day
 export function getInterviewersForDay(state, day) {
-  //returns an array of appointments for that day
   const days = state.days;
-  console.log(days)
-  console.log('days', days.length)
   const interviewers = state.interviewers;
   let dayInterviewers = [];
 
