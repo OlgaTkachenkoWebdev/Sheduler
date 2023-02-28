@@ -25,6 +25,7 @@ export function getAppointmentsForDay(state, day) {
   return appointmentsObjects;
 }
 
+// returns object with student name and interviewer id, name and avatar
 export function getInterview(state, interview) {
   if (!interview) {
     return null;
@@ -38,4 +39,33 @@ export function getInterview(state, interview) {
   }
 
   return interviewObject;
+}
+
+//returns array of appointment objects
+export function getInterviewersForDay(state, day) {
+  //returns an array of appointments for that day
+  const days = state.days;
+  console.log(days)
+  console.log('days', days.length)
+  const interviewers = state.interviewers;
+  let dayInterviewers = [];
+
+  if (days.length === 0) {
+    return []
+  } else {
+    const filteredDay = days.filter(d => d.name === day)
+    if (filteredDay[0]) {
+      dayInterviewers = filteredDay[0].interviewers;
+    } else {
+      return [];
+    }
+  }
+
+  let interviewersObjects = [];
+
+  for (const id of dayInterviewers) {
+    interviewersObjects.push(interviewers[id])
+  }
+
+  return interviewersObjects;
 }
