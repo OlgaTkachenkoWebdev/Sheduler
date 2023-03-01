@@ -18,6 +18,7 @@ const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE"
+const ERROR_FORM = "ERROR_FORM"
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
@@ -29,15 +30,18 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    transition(SAVING);
-
-    props.bookInterview(props.id, interview)
-      .then(() => {
-        transition(SHOW)
-      })
-      .catch(() => {
-        transition(ERROR_SAVE, true)
-      })
+    if (name && interviewer) {
+      transition(SAVING);
+      props.bookInterview(props.id, interview)
+        .then(() => {
+          transition(SHOW)
+        })
+        .catch(() => {
+          transition(ERROR_SAVE, true)
+        })
+    } else {
+      transition(ERROR_FORM, true)
+    }
   }
 
   function deleteIterview() {
@@ -92,6 +96,10 @@ export default function Appointment(props) {
       />}
       {mode === ERROR_SAVE && <Error
         message="Could not save appointment"
+        onClose={() => back()}
+      />}
+      {mode === ERROR_FORM && <Error
+        message="Please enter student's name AND choose an interviewer"
         onClose={() => back()}
       />}
     </article>
