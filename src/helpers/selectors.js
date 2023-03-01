@@ -65,4 +65,58 @@ export function getInterviewersForDay(state, day) {
   }
 
   return interviewersObjects;
+};
+
+//returns updated array of days
+export function updateDays(allAppointments, allDays, thisDay) {
+  //returns array of appointments
+  function getAppointments(appointments, days, day) {
+    let dayAppointments = [];
+
+    const filteredDay = days.filter(d => d.name === day)
+    if (filteredDay[0]) {
+      dayAppointments = filteredDay[0].appointments;
+    };
+
+    let appointmentsObjects = [];
+
+    for (const id of dayAppointments) {
+      appointmentsObjects.push(appointments[id])
+    };
+
+    return appointmentsObjects;
+  }
+  // returns number of available spots that equals the number of interviews with null value 
+  function getSpots(appointments) {
+    const appointmentsValues = Object.values(appointments);
+    let spots = 0;
+
+    for (const appointment of appointmentsValues) {
+      if (appointment.interview === null) {
+        spots++;
+      }
+    }
+
+    return spots;
+  }
+  //returns object of chosen day
+  function getDay(days, day) {
+    const chosenDay = days.find((d) => d.name === day)
+    return chosenDay;
+  }
+  //returns updated days array 
+  function newDays(days, oldDay, newDay) {
+    const index = days.indexOf(oldDay);
+    const daysArray = days;
+    daysArray[index] = newDay;
+    return daysArray;
+  }
+
+  const dailyAppointments = getAppointments(allAppointments, allDays, thisDay);
+  const newSpots = getSpots(dailyAppointments);
+  const day = getDay(allDays, thisDay);
+  const newDay = { ...day, spots: newSpots };
+  const days = newDays(allDays, day, newDay);
+
+  return days;
 }
