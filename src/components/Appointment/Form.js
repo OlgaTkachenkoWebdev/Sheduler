@@ -10,6 +10,7 @@ export default function Form(props) {
 
   const reset = () => {
     setStudent("");
+    setError("");
     setInterviewer(null)
   }
 
@@ -22,12 +23,13 @@ export default function Form(props) {
     if (student === "") {
       setError("Student name cannot be blank");
       return;
-    }
-    if (interviewer === null) {
+    } else if (interviewer === null) {
       setError("Please select an interviewer");
       return;
+    } else {
+      setError("");
+      props.onSave(student, interviewer);
     }
-    props.onSave(student, interviewer);
   }
 
   return (
@@ -46,9 +48,9 @@ export default function Form(props) {
           <section className="appointment__validation">{error}</section>
         </form>
         <InterviewerList
-        interviewers={props.interviewers}
-        value={interviewer}
-        onChange={(setInterviewer)}
+          interviewers={props.interviewers}
+          value={interviewer}
+          onChange={(setInterviewer)}
         />
       </section>
       <section className="appointment__card-right">
