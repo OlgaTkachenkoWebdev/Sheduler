@@ -53,6 +53,20 @@ const fixtures = {
   }
 };
 
+// const interview = {
+//   student: "Lydia Miller-Jones",
+//   interviewer: 1
+// };
+
+// const appointment = {
+//   ...fixtures.appointments[1],
+//   interview: {...interview}
+// };
+// const appointments = {
+//   ...fixtures.appointments,
+//   [1]: appointment
+// };
+
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
@@ -77,6 +91,24 @@ export default {
         status: 200,
         statusText: "OK",
         data: fixtures.interviewers
+      });
+    }
+  }),
+  put: jest.fn(url => {
+    if (url === "/api/appointments/") {
+      return Promise.resolve({
+        status: 204,
+        statusText: "No Content",
+        data: fixtures.appointments
+      });
+    }
+  }),
+  delete: jest.fn(url => {
+    if (url === "/api/appointments/") {
+      return Promise.resolve({
+        status: 200,
+        statusText: "OK",
+        data: fixtures.appointments
       });
     }
   })

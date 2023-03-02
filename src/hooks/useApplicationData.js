@@ -36,11 +36,12 @@ export default function useApplicationData() {
     //returns days with updated spots
     const days = updateDays(appointments, state.days, state.day)
 
-    return axios.put('/api/appointments/' + id, {
+    axios.put('/api/appointments/' + id, {
       interview: interview
     })
-      .then(() => {
+      .then((res) => {
         setState({ ...state, appointments, days });
+        return res
       })
   }
 

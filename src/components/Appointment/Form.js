@@ -28,7 +28,7 @@ export default function Form(props) {
       return;
     } else {
       setError("");
-      props.onSave(student, interviewer);
+      props.onSave(student, interviewer.id);
     }
   }
 
