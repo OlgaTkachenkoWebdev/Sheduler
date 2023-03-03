@@ -27,5 +27,5 @@ Both servers run concurrently; requests are proxied from the Webpack development
 ## Screenshots
 ![Main page](https://github.com/woodenonesie/Sheduler/blob/master/Docs/Main%20page.jpg?raw=true)
 ![Creating appointment](https://github.com/woodenonesie/Sheduler/blob/master/Docs/Creating%20appointment.jpg?raw=true)
-![Deleting appointment](https://github.com/woodenonesie/Sheduler/blob/master/Docs/Deleting%20appointment.jpg?raw=true)
+![Deleting appointment](https://github.com/woodenonesie/Sheduler/blob/master/Docs/Delete%20confirmation.jpg?raw=true)
 ![Error message](https://github.com/woodenonesie/Sheduler/blob/master/Docs/Error.jpg?raw=true)
