@@ -1,12 +1,12 @@
 describe("Appointments", () => {
+
   beforeEach(() => {
    cy.request("GET", "/api/debug/reset");
- 
    cy.visit("/");
- 
    cy.contains("Monday");
   });
  
+
   it("should book an interview", () => {
    cy.get("[alt=Add]")
     .first()
@@ -20,6 +20,7 @@ describe("Appointments", () => {
    cy.contains(".appointment__card--show", "Lydia Miller-Jones");
    cy.contains(".appointment__card--show", "Sylvia Palmer");
   });
+
 
   it("should edit an interview", () => {
     cy.get("[alt=Edit]")
@@ -35,6 +36,7 @@ describe("Appointments", () => {
     cy.contains(".appointment__card--show", "Tori Malcolm");
   });
 
+  
   it("should cancel an interview", () => {
     cy.get("[alt=Delete]")
       .click({ force: true });

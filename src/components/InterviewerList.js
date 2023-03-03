@@ -1,8 +1,8 @@
 import React from "react";
 import InterviewerListItem from "components/InterviewerListItem.js";
-import "components/InterviewerList.scss"
+import "components/InterviewerList.scss";
 
-import PropTypes from 'prop-types'; 
+import PropTypes from "prop-types"; 
 
 function InterviewerList(props) {
   const interviewers = props.interviewers;
@@ -25,7 +25,7 @@ function InterviewerList(props) {
         {listInterviewers}
       </ul>
     </section>
-  )
+  );
 }
 
 InterviewerList.propTypes = {

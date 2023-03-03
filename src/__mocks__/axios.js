@@ -53,20 +53,6 @@ const fixtures = {
   }
 };
 
-// const interview = {
-//   student: "Lydia Miller-Jones",
-//   interviewer: 1
-// };
-
-// const appointment = {
-//   ...fixtures.appointments[1],
-//   interview: {...interview}
-// };
-// const appointments = {
-//   ...fixtures.appointments,
-//   [1]: appointment
-// };
-
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
@@ -112,4 +98,4 @@ export default {
       });
     }
   })
-}
+};

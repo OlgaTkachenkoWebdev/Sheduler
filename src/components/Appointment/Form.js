@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import Button from "components/Button.js";
 import InterviewerList from "components/InterviewerList.js";
@@ -11,13 +11,13 @@ export default function Form(props) {
   const reset = () => {
     setStudent("");
     setError("");
-    setInterviewer(null)
-  }
+    setInterviewer(null);
+  };
 
   const cancel = () => {
     reset();
-    props.onCancel()
-  }
+    props.onCancel();
+  };
 
   function validate() {
     if (student === "") {
@@ -60,5 +60,5 @@ export default function Form(props) {
         </section>
       </section>
     </main>
-  )
+  );
 }

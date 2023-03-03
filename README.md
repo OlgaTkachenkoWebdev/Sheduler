@@ -1,23 +1,27 @@
 # Interview Scheduler
+**Interview Scheduler** is a simple, single-page project, that allows user to schedule interview with available interviewers. User can choose day, time slot and interviewer. Also, it shows how many available spots are left, allows edit and delete appointments.
 
-## Setup
+## Technical Specifications
 
-Install dependencies with `npm install`.
+The Interview Scheduler project has been tested with `Node v12.22.x (Vagrant & WSL)` and `v15.14.0 (M1)` and may not work with a newer version. Please ensure that you are using this version of node. You can use Node Version Manager (nvm)to switch to `v12.22.x (Vagrant & WSL)` or `v15.14.0 (M1)` of Node.
+* React
+* Webpack, Babel
+* Axios
+* Storybook, Webpack Dev Server, Jest, Testing Library
 
-## Running Webpack Development Server
+The Scheduler client application created using `Create React App. Express` is the basis for the Scheduler API server application.
 
-```sh
-npm start
-```
+Both servers run concurrently; requests are proxied from the Webpack development server to the API server.
+### Dependencies
+* axios
+* @testing-library/react-hooks
+* react-test-renderer
 
-## Running Jest Test Framework
-
-```sh
-npm test
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
+## Getting started
+1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
+2. Clone your repository onto your local device.
+3. Install dependencies using the `npm install` command.
+4. Running Webpack Development Server `npm start`
+5. Running Jest Test Framework `npm test`
+6. Running Storybook Visual Testbed `npm run storybook`
+## Screenshots
