@@ -86,7 +86,7 @@ export default function Appointment(props) {
         interviewer={props.interview.interviewer}
       />}
       {mode === ERROR_DELETE && <Error
-        message="Could not canel appointment"
+        message="Could not cancel appointment"
         onClose={() => back()}
       />}
       {mode === ERROR_SAVE && <Error
