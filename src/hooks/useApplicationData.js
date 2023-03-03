@@ -36,7 +36,7 @@ export default function useApplicationData() {
     //returns days with updated spots
     const days = updateDays(appointments, state.days, state.day)
 
-    axios.put('/api/appointments/' + id, {
+    return axios.put('/api/appointments/' + id, {
       interview: interview
     })
       .then((res) => {

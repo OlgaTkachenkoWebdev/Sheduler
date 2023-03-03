@@ -17,7 +17,7 @@ describe("Application", () => {
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
 
-  xit("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
+  it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -45,7 +45,7 @@ describe("Application", () => {
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
 
-  xit("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
+  it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     const { container } = render(<Application />);
   
     await waitForElement(() => getByText(container, "Archie Cohen"));
@@ -60,17 +60,17 @@ describe("Application", () => {
     fireEvent.click(getByText(appointment, "Confirm"));
     expect(getByText(appointment, "Deleting...")).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Add"));
+    await waitForElement(() => getByAltText(appointment, "Add"));
 
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
 
-    expect(getByText(day, "2 spot remaining")).toBeInTheDocument();
+    expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
 
   });
 
-  xit("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+  it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
     const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
